@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Profile</title>
+  </head>
+  <body>
+    <header
+      class="bg-gradient-to-l from-black to-[var(--primary)] text-white fixed top-0 left-0 w-full z-50 shadow-md shadow-black/40"
+    >
+      <div class="max-w-6xl mx-auto p-5">
+        <!--  -->
+        <div class="flex justify-between items-center gap-4 text-base">
+          <div class="flex items-center gap-2">
+            <div id="hamburger" class="lg:hidden">
+              <svg
+                id="hamburger-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="none"
+                  stroke="#ffffff"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2.5"
+                  d="M3 6h18M3 12h18M3 18h18"
+                />
+              </svg>
+              <!-- cross -->
+              <svg
+                id="close-icon"
+                class="hidden"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 16 16"
+              >
+                <path d="M0 0h16v16H0z" fill="none" />
+                <path
+                  fill="none"
+                  stroke="#ffffff"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="m11.25 4.75-6.5 6.5m0-6.5 6.5 6.5"
+                />
+              </svg>
+            </div>
+            <a href="index.html" class="flex items-center gap-3">
+              <div
+                class="flex h-7 w-7 items-center justify-center rounded-full bg-white/10 ring-1 ring-white/20"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="15"
+                  height="15"
+                  viewBox="0 0 24 24"
+                  class="text-blue-300"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M12 2a4 4 0 0 1 4 4v1h1a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-1v2a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-2H6a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1V6a4 4 0 0 1 4-4m0 2a2 2 0 0 0-2 2v1h4V6a2 2 0 0 0-2-2"
+                  />
+                </svg>
+              </div>
+              <div>
+                <h2 class="text-lg font-semibold hidden lg:block">
+                  LUKEXX <span class="text-blue-300">Wallet</span>
+                </h2>
+              </div>
+            </a>
+          </div>
+          <!--  -->
+          <div>
+            <p>Lukman</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- sidebar -->
+    <aside id="mobile" class="hidden">
+      <ul
+        class="flex flex-col gap-4 p-5 bg-gradient-to-l from-black to-[var(--primary)] text-white fixed top-16 left-0 w-[250px] h-screen z-40 shadow-md shadow-black/40 -translate-[10px, 20px] transition-transform duration-300"
+      >
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="wallet.html">Wallet</a></li>
+        <li><a href="transactions.html">Transaction</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="settings.html">Settings</a></li>
+        <li><a href="login.html">Logout</a></li>
+      </ul>
+    </aside>
+    <!-- Main -->
+    <main class="min-h-screen bg-gray-50 py-10">
+      <div class="max-w-6xl mx-auto px-5">
+        <!-- Page Header -->
+        <section class="mb-8 py-[50px]">
+          <p class="text-sm text-gray-500">Dashboard / Profile</p>
+
+          <h1 class="text-4xl font-bold text-[var(--text)] mt-2">My Profile</h1>
+
+          <p class="text-gray-500 mt-2">
+            Manage your account information and keep your details up to date.
+          </p>
+        </section>
+
+        <div class="grid lg:grid-cols-3 gap-8">
+          <!-- Left Card -->
+
+          <div class="bg-white rounded-2xl shadow-md p-8 text-center h-fit">
+            <img
+              src="https://placehold.co/150x150"
+              alt="Profile"
+              class="w-36 h-36 rounded-full object-cover mx-auto border-4 border-[var(--primary)]"
+            />
+
+            <h2 class="text-2xl font-bold mt-5 text-[var(--text)]">
+              Lukman Azeez
+            </h2>
+
+            <p class="text-gray-500 mt-1">lukman@email.com</p>
+
+            <button
+              class="mt-6 w-full py-3 rounded-xl bg-[var(--primary)] text-white hover:opacity-90 transition"
+            >
+              Change Profile Picture
+            </button>
+          </div>
+
+          <!-- Right -->
+
+          <div class="lg:col-span-2 space-y-8">
+            <!-- Personal Information -->
+
+            <div class="bg-white rounded-2xl shadow-md p-8">
+              <h2 class="text-2xl font-bold mb-6">Personal Information</h2>
+
+              <div class="grid md:grid-cols-2 gap-5">
+                <div>
+                  <label class="font-medium"> Full Name </label>
+
+                  <input
+                    type="text"
+                    class="w-full mt-2 border rounded-xl p-4 focus:ring-2 focus:ring-[var(--primary)] outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label class="font-medium"> Email Address </label>
+
+                  <input
+                    type="email"
+                    class="w-full mt-2 border rounded-xl p-4 focus:ring-2 focus:ring-[var(--primary)] outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label class="font-medium"> Phone Number </label>
+
+                  <input
+                    type="text"
+                    class="w-full mt-2 border rounded-xl p-4 focus:ring-2 focus:ring-[var(--primary)] outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label class="font-medium"> Username </label>
+
+                  <input
+                    type="text"
+                    class="w-full mt-2 border rounded-xl p-4 focus:ring-2 focus:ring-[var(--primary)] outline-none"
+                  />
+                </div>
+              </div>
+
+              <button
+                class="mt-8 px-8 py-3 rounded-xl bg-[var(--primary)] text-white hover:opacity-90 transition"
+              >
+                Save Changes
+              </button>
+            </div>
+
+            <!-- Change Password -->
+
+            <div class="bg-white rounded-2xl shadow-md p-8">
+              <h2 class="text-2xl font-bold mb-6">Change Password</h2>
+
+              <div class="space-y-5">
+                <div>
+                  <label class="font-medium"> Current Password </label>
+
+                  <input
+                    type="password"
+                    class="w-full mt-2 border rounded-xl p-4 focus:ring-2 focus:ring-[var(--primary)] outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label class="font-medium"> New Password </label>
+
+                  <input
+                    type="password"
+                    class="w-full mt-2 border rounded-xl p-4 focus:ring-2 focus:ring-[var(--primary)] outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label class="font-medium"> Confirm New Password </label>
+
+                  <input
+                    type="password"
+                    class="w-full mt-2 border rounded-xl p-4 focus:ring-2 focus:ring-[var(--primary)] outline-none"
+                  />
+                </div>
+              </div>
+
+              <button
+                class="mt-8 px-8 py-3 rounded-xl bg-red-600 text-white hover:bg-red-700 transition"
+              >
+                Update Password
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[var(--footer)] text-white">
+      <div class="max-w-6xl mx-auto px-6 py-16">
+        <!-- Top Footer -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-3 gap-10 border-b border-white/10 pb-10"
+        >
+          <!-- Brand -->
+          <div>
+            <h2 class="text-3xl font-bold">
+              LUKEXX <span class="text-blue-400">Wallet</span>
+            </h2>
+
+            <p class="text-gray-400 mt-4 leading-7">
+              Manage your virtual wallet with confidence. Deposit, withdraw, and
+              keep track of every transaction through a secure and user-friendly
+              experience.
+            </p>
+          </div>
+
+          <!-- Quick Links -->
+          <div>
+            <h3 class="text-lg font-semibold mb-5">Quick Links</h3>
+
+            <ul class="space-y-3 text-gray-400">
+              <li>
+                <a href="index.html" class="hover:text-white transition">
+                  Home
+                </a>
+              </li>
+
+              <li>
+                <a href="register.html" class="hover:text-white transition">
+                  Register
+                </a>
+              </li>
+
+              <li>
+                <a href="login.html" class="hover:text-white transition">
+                  Login
+                </a>
+              </li>
+
+              <li>
+                <a href="dashboard.html" class="hover:text-white transition">
+                  Dashboard
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Resources -->
+          <div>
+            <h3 class="text-lg font-semibold mb-5">Resources</h3>
+
+            <ul class="space-y-3 text-gray-400">
+              <li>
+                <a href="wallet.html" class="hover:text-white transition">
+                  Wallet
+                </a>
+              </li>
+
+              <li>
+                <a href="transactions.html" class="hover:text-white transition">
+                  Transactions
+                </a>
+              </li>
+
+              <li>
+                <a href="profile.html" class="hover:text-white transition">
+                  Profile
+                </a>
+              </li>
+
+              <li>
+                <a href="settings.html" class="hover:text-white transition">
+                  Settings
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bottom Footer -->
+        <div
+          class="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 text-sm text-gray-400"
+        >
+          <p>© 2026 LUKEXX Wallet. All rights reserved.</p>
+
+          <p>
+            Built with
+            <span class="text-red-500">❤</span>
+            by
+            <span class="text-white font-medium">Lukman Azeez</span>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./js/script.js"></script>
+  </body>
+</html>

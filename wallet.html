@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Wallet</title>
+  </head>
+  <body>
+    <header
+      class="bg-gradient-to-l from-black to-[var(--primary)] text-white fixed top-0 left-0 w-full z-50 shadow-md shadow-black/40"
+    >
+      <div class="max-w-6xl mx-auto p-5">
+        <!--  -->
+        <div class="flex justify-between items-center gap-4 text-base">
+          <div class="flex items-center gap-2">
+            <div id="hamburger" class="lg:hidden">
+              <svg
+                id="hamburger-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="none"
+                  stroke="#ffffff"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2.5"
+                  d="M3 6h18M3 12h18M3 18h18"
+                />
+              </svg>
+              <!-- cross -->
+              <svg
+                id="close-icon"
+                class="hidden"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 16 16"
+              >
+                <path d="M0 0h16v16H0z" fill="none" />
+                <path
+                  fill="none"
+                  stroke="#ffffff"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="m11.25 4.75-6.5 6.5m0-6.5 6.5 6.5"
+                />
+              </svg>
+            </div>
+            <a href="index.html" class="flex items-center gap-3">
+              <div
+                class="flex h-7 w-7 items-center justify-center rounded-full bg-white/10 ring-1 ring-white/20"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="15"
+                  height="15"
+                  viewBox="0 0 24 24"
+                  class="text-blue-300"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M12 2a4 4 0 0 1 4 4v1h1a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-1v2a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-2H6a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1V6a4 4 0 0 1 4-4m0 2a2 2 0 0 0-2 2v1h4V6a2 2 0 0 0-2-2"
+                  />
+                </svg>
+              </div>
+              <div>
+                <h2 class="text-lg font-semibold hidden lg:block">
+                  LUKEXX <span class="text-blue-300">Wallet</span>
+                </h2>
+              </div>
+            </a>
+          </div>
+          <!--  -->
+          <div>
+            <p>Lukman</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- sidebar -->
+    <aside id="mobile" class="hidden">
+      <ul
+        class="flex flex-col gap-4 p-5 bg-gradient-to-l from-black to-[var(--primary)] text-white fixed top-16 left-0 w-[250px] h-screen z-40 shadow-md shadow-black/40 -translate-[10px, 20px] transition-transform duration-300"
+      >
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="wallet.html">Wallet</a></li>
+        <li><a href="transactions.html">Transaction</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="settings.html">Settings</a></li>
+        <li><a href="login.html">Logout</a></li>
+      </ul>
+    </aside>
+    <!--  -->
+
+    <!-- Main -->
+    <main class="bg-gray-50 min-h-screen py-10">
+      <div class="max-w-6xl mx-auto px-5">
+        <!-- Page Header -->
+        <section class="mb-8">
+          <p class="text-sm text-gray-500 pt-[50px]">Dashboard / Wallet</p>
+
+          <h1 class="text-4xl font-bold text-[var(--text)] mt-2">Wallet</h1>
+
+          <p class="text-gray-500 mt-2">
+            Deposit funds, withdraw securely and manage your wallet with ease.
+          </p>
+        </section>
+
+        <!-- Wallet Summary -->
+        <section
+          class="rounded-3xl bg-gradient-to-r from-[var(--primary)] to-[var(--primary-dark)] text-white p-8 shadow-xl mb-10"
+        >
+          <div class="flex flex-col md:flex-row justify-between gap-8">
+            <div>
+              <p class="text-white/80 uppercase tracking-widest text-sm">
+                Current Balance
+              </p>
+
+              <div class="flex items-center gap-3 mt-3">
+                <h2 id="walletBalance" class="text-5xl font-bold">
+                  ₦50,000.00
+                </h2>
+
+                <button id="toggleBalance" class="hover:opacity-80 transition">
+                  👁️
+                </button>
+              </div>
+
+              <p class="mt-3 text-white/80">Last updated: Today • 2:35 PM</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Deposit & Withdraw -->
+
+        <section class="grid lg:grid-cols-2 gap-8">
+          <!-- Deposit -->
+
+          <div class="bg-white rounded-2xl shadow-md p-8">
+            <h2 class="text-2xl font-bold text-[var(--text)]">Deposit Funds</h2>
+
+            <p class="text-gray-500 mt-2 mb-6">
+              Add money to your wallet instantly.
+            </p>
+
+            <label class="font-medium"> Amount </label>
+
+            <input
+              type="number"
+              id="depositAmount"
+              placeholder="Enter amount"
+              class="w-full mt-2 p-4 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[var(--primary)] outline-none"
+            />
+
+            <button
+              id="depositBtn"
+              class="w-full mt-6 py-4 rounded-xl bg-[var(--primary)] text-white font-semibold hover:opacity-90 transition"
+            >
+              Deposit
+            </button>
+          </div>
+
+          <!-- Withdraw -->
+
+          <div class="bg-white rounded-2xl shadow-md p-8">
+            <h2 class="text-2xl font-bold text-[var(--text)]">
+              Withdraw Funds
+            </h2>
+
+            <p class="text-gray-500 mt-2 mb-6">
+              Withdraw money from your wallet securely.
+            </p>
+
+            <label class="font-medium"> Amount </label>
+
+            <input
+              type="number"
+              id="withdrawAmount"
+              placeholder="Enter amount"
+              class="w-full mt-2 p-4 rounded-xl border border-gray-300 focus:ring-2 focus:ring-red-500 outline-none"
+            />
+
+            <button
+              id="withdrawBtn"
+              class="w-full mt-6 py-4 rounded-xl bg-red-600 text-white font-semibold hover:bg-red-700 transition"
+            >
+              Withdraw
+            </button>
+          </div>
+        </section>
+
+        <!-- Recent Wallet Activity -->
+
+        <section class="bg-white rounded-2xl shadow-md p-8 mt-10">
+          <div class="flex justify-between items-center mb-6">
+            <div>
+              <h2 class="text-2xl font-bold text-[var(--text)]">
+                Recent Wallet Activity
+              </h2>
+
+              <p class="text-gray-500 mt-1">Your latest wallet transactions.</p>
+            </div>
+
+            <a
+              href="transactions.html"
+              class="text-[var(--primary)] font-semibold hover:underline"
+            >
+              View All →
+            </a>
+          </div>
+
+          <div class="space-y-4">
+            <!-- Transaction -->
+
+            <div
+              class="flex justify-between items-center border rounded-xl p-4"
+            >
+              <div class="flex items-center gap-4">
+                <div
+                  class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center"
+                >
+                  💰
+                </div>
+
+                <div>
+                  <h3 class="font-semibold">Deposit</h3>
+
+                  <p class="text-sm text-gray-500">Today • 09:35 AM</p>
+                </div>
+              </div>
+
+              <span class="font-bold text-green-600"> + ₦5,000 </span>
+            </div>
+
+            <div
+              class="flex justify-between items-center border rounded-xl p-4"
+            >
+              <div class="flex items-center gap-4">
+                <div
+                  class="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center"
+                >
+                  💸
+                </div>
+
+                <div>
+                  <h3 class="font-semibold">Withdrawal</h3>
+
+                  <p class="text-sm text-gray-500">Yesterday • 4:20 PM</p>
+                </div>
+              </div>
+
+              <span class="font-bold text-red-600"> - ₦2,000 </span>
+            </div>
+
+            <div
+              class="flex justify-between items-center border rounded-xl p-4"
+            >
+              <div class="flex items-center gap-4">
+                <div
+                  class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center"
+                >
+                  💰
+                </div>
+
+                <div>
+                  <h3 class="font-semibold">Deposit</h3>
+
+                  <p class="text-sm text-gray-500">Monday • 11:00 AM</p>
+                </div>
+              </div>
+
+              <span class="font-bold text-green-600"> + ₦8,000 </span>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[var(--footer)] text-white">
+      <div class="max-w-6xl mx-auto px-6 py-16">
+        <!-- Top Footer -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-3 gap-10 border-b border-white/10 pb-10"
+        >
+          <!-- Brand -->
+          <div>
+            <h2 class="text-3xl font-bold">
+              LUKEXX <span class="text-blue-400">Wallet</span>
+            </h2>
+
+            <p class="text-gray-400 mt-4 leading-7">
+              Manage your virtual wallet with confidence. Deposit, withdraw, and
+              keep track of every transaction through a secure and user-friendly
+              experience.
+            </p>
+          </div>
+
+          <!-- Quick Links -->
+          <div>
+            <h3 class="text-lg font-semibold mb-5">Quick Links</h3>
+
+            <ul class="space-y-3 text-gray-400">
+              <li>
+                <a href="index.html" class="hover:text-white transition">
+                  Home
+                </a>
+              </li>
+
+              <li>
+                <a href="register.html" class="hover:text-white transition">
+                  Register
+                </a>
+              </li>
+
+              <li>
+                <a href="login.html" class="hover:text-white transition">
+                  Login
+                </a>
+              </li>
+
+              <li>
+                <a href="dashboard.html" class="hover:text-white transition">
+                  Dashboard
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Resources -->
+          <div>
+            <h3 class="text-lg font-semibold mb-5">Resources</h3>
+
+            <ul class="space-y-3 text-gray-400">
+              <li>
+                <a href="wallet.html" class="hover:text-white transition">
+                  Wallet
+                </a>
+              </li>
+
+              <li>
+                <a href="transactions.html" class="hover:text-white transition">
+                  Transactions
+                </a>
+              </li>
+
+              <li>
+                <a href="profile.html" class="hover:text-white transition">
+                  Profile
+                </a>
+              </li>
+
+              <li>
+                <a href="settings.html" class="hover:text-white transition">
+                  Settings
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bottom Footer -->
+        <div
+          class="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 text-sm text-gray-400"
+        >
+          <p>© 2026 LUKEXX Wallet. All rights reserved.</p>
+
+          <p>
+            Built with
+            <span class="text-red-500">❤</span>
+            by
+            <span class="text-white font-medium">Lukman Azeez</span>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./js/script.js"></script>
+  </body>
+</html>

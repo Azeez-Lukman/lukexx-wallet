@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Register</title>
+</head>
+<body>
+  <section>
+    <div class="max-w-6xl mx-auto py-[50x] px-[30px]">
+      <h2 class="text-2xl font-bold text-[var(--primary)] text-center py-8">Create Your Account</h2>
+      <!-- general div -->
+       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center py-8">
+        <!-- first column -->
+        <div class="flex flex-col gap-4">
+          <h1 class="text-3xl font-bold text-[var(--primary)] ">Join LUKEXX Wallet Today</h1>
+          <p class="text-gray-500">Create your free account to manage your virtual wallet, track transactions, and experience smarter digital finance.</p>
+       </div>
+       <!-- second column -->
+        <div class="bg-white p-8 rounded-lg shadow-md pt-10">
+          <form id="register-form" action="" class="flex flex-col gap-4">
+           <!-- Error Message Display Area -->
+            <div id="error-display" class="text-sm font-semibold text-rose-400 hidden bg-rose-950/40 border border-rose-800/50 rounded-lg p-3"></div>
+            <!-- full name -->
+            <input id="full-name" type="text" placeholder="Full Name" class="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[var(--primary)]">
+            <!-- email -->
+            <input id="email" type="email" placeholder="Email Address" class="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[var(--primary)]">
+            <!-- phone -->
+            <input id="phone" type="tel" placeholder="Phone Number" class="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[var(--primary)]">
+            <!-- password -->
+            <input id="password" type="password" placeholder="Password" required minlength="8" class="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[var(--primary)]">
+            <!-- confirm password -->
+            <input id="confirm-password" type="password" required minlength="8" placeholder="Confirm Password" class="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[var(--primary)]">
+
+            <button id="register-btn" type="submit" class="bg-[var(--primary)] text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300">Register</button>
+          </form>
+        </div>
+    </div>
+  </section>
+</body>
+</html>

@@ -1,0 +1,781 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Homepage</title>
+  </head>
+  <body class="h-screen bg-slate-50 text-slate-800">
+    <header>
+      <div
+        class="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-gradient-to-r from-slate-950 via-slate-900 to-blue-600 text-white shadow-lg shadow-slate-950/20"
+      >
+        <div
+          class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4"
+        >
+          <a href="index.html" class="flex items-center gap-3">
+            <div
+              class="flex h-7 w-7 items-center justify-center rounded-full bg-white/10 ring-1 ring-white/20"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                class="text-blue-300"
+              >
+                <path
+                  fill="currentColor"
+                  d="M12 2a4 4 0 0 1 4 4v1h1a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-1v2a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-2H6a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1V6a4 4 0 0 1 4-4m0 2a2 2 0 0 0-2 2v1h4V6a2 2 0 0 0-2-2"
+                />
+              </svg>
+            </div>
+            <div>
+              <h2 class="text-lg font-semibold hidden lg:block">
+                LUKEXX <span class="text-blue-300">Wallet</span>
+              </h2>
+            </div>
+          </a>
+
+          <ul class="hidden items-center gap-6 text-sm font-medium lg:flex">
+            <li>
+              <a href="#home" class="transition hover:text-blue-200">Home</a>
+            </li>
+            <li>
+              <a href="#features" class="transition hover:text-blue-200"
+                >Features</a
+              >
+            </li>
+            <li>
+              <a href="#how" class="capitalize transition hover:text-blue-200"
+                >How it works</a
+              >
+            </li>
+            <li>
+              <a href="#about" class="transition hover:text-blue-200">About</a>
+            </li>
+          </ul>
+
+          <div class="hidden items-center gap-3 lg:flex">
+            <a
+              href="register.html"
+              class="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-medium text-white transition hover:bg-white/20"
+            >
+              Create Free Account
+            </a>
+            <a
+              href="login.html"
+              class="rounded-full bg-white px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-slate-100"
+            >
+              Login
+            </a>
+          </div>
+
+          <div id="hamburger" class="lg:hidden">
+            <svg
+              id="hamburger-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="none"
+                stroke="#ffffff"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2.5"
+                d="M3 6h18M3 12h18M3 18h18"
+              />
+            </svg>
+            <svg
+              id="close-icon"
+              class="hidden"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 16 16"
+            >
+              <path d="M0 0h16v16H0z" fill="none" />
+              <path
+                fill="none"
+                stroke="#ffffff"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="m11.25 4.75-6.5 6.5m0-6.5 6.5 6.5"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section id="mobile" class="hidden">
+      <div
+        class="fixed inset-x-0 top-[60px] z-40 min-h-screen bg-slate-950/95 px-6 py-10 text-white backdrop-blur"
+      >
+        <div class="mx-auto flex max-w-6xl flex-col gap-6">
+          <ul class="space-y-3 text-xl">
+            <li>
+              <a
+                href="#home"
+                class="block rounded-xl px-3 py-2 transition hover:bg-white/10"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="#features"
+                class="block rounded-xl px-3 py-2 transition hover:bg-white/10"
+                >Features</a
+              >
+            </li>
+            <li>
+              <a
+                href="#how"
+                class="block rounded-xl px-3 py-2 capitalize transition hover:bg-white/10"
+                >How it works</a
+              >
+            </li>
+            <li>
+              <a
+                href="#about"
+                class="block rounded-xl px-3 py-2 transition hover:bg-white/10"
+                >About</a
+              >
+            </li>
+          </ul>
+
+          <div class="flex flex-col gap-3">
+            <a
+              href="register.html"
+              class="rounded-full bg-white px-4 py-2 text-center text-sm font-semibold text-slate-900"
+              >Create Free Account</a
+            >
+            <a
+              href="login.html"
+              class="rounded-full border border-white/20 px-4 py-2 text-center text-sm font-semibold text-white"
+              >Login</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <main>
+      <section id="home" class="relative isolate overflow-hidden pt-24">
+        <div class="absolute inset-0">
+          <img
+            class="h-full w-full object-cover"
+            src="./assets/images/hero-image.jpg"
+            alt="Illustration of a digital wallet interface"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-900/80 to-blue-900/70"
+          ></div>
+        </div>
+
+        <div
+          class="relative mx-auto flex max-w-6xl flex-col gap-10 px-6 lg:py-[50px] py-[20px]"
+        >
+          <div class="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+            <div class="max-w-2xl text-white">
+              <div
+                class="mb-5 inline-flex items-center gap-2 rounded-full border border-blue-300/30 bg-blue-400/10 px-3 py-1 text-sm font-medium text-blue-100"
+              >
+                <span class="h-2.5 w-2.5 rounded-full bg-blue-300"></span>
+                Secure virtual wallet experience
+              </div>
+              <h1
+                class="text-3xl font-bold leading-tight lg:text-5xl"
+              >
+                Manage your money with confidence and clarity.
+              </h1>
+              <p class="mt-5 max-w-xl text-lg leading-8 text-slate-200">
+                Deposit funds, make secure withdrawals, and track each
+                transaction from one polished virtual wallet dashboard.
+              </p>
+              <div class="mt-8 flex flex-wrap gap-3">
+                <a
+                  href="register.html"
+                  class="rounded-full bg-blue-500 px-6 py-3 font-semibold text-white transition hover:bg-blue-400"
+                  >Create Free Account</a
+                >
+                <a
+                  href="#features"
+                  class="rounded-full border border-white/20 bg-white/10 px-6 py-3 font-semibold text-white transition hover:bg-white/20"
+                  >Explore Features</a
+                >
+              </div>
+              <div class="mt-5 lg:flex flex-wrap gap-4 text-sm text-slate-200  hidden">
+                <div
+                  class="rounded-full border border-white/15 bg-white/10 px-3 py-2"
+                >
+                  Fast deposits
+                </div>
+                <div
+                  class="rounded-full border border-white/15 bg-white/10 px-3 py-2"
+                >
+                  Secure history
+                </div>
+                <div
+                  class="rounded-full border border-white/15 bg-white/10 px-3 py-2"
+                >
+                  Easy access
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="rounded-3xl border border-white/15 bg-white/10 p-6 shadow-2xl shadow-slate-950/30 backdrop-blur-md"
+            >
+              <div class="rounded-2xl bg-slate-950/80 p-6">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <p class="text-sm text-slate-400">Balance</p>
+                    <h3 class="mt-1 text-3xl font-semibold text-white">
+                      $25,000
+                    </h3>
+                  </div>
+                  <div
+                    class="rounded-full border border-emerald-400/40 bg-emerald-400/10 px-3 py-1 text-sm font-medium text-emerald-300"
+                  >
+                    +12.5%
+                  </div>
+                </div>
+
+                <div class="mt-6 space-y-3">
+                  <div
+                    class="rounded-2xl border border-white/10 bg-white/5 p-4"
+                  >
+                    <div class="flex items-center justify-between">
+                      <span class="text-sm text-slate-300">Deposit</span>
+                      <span class="text-sm font-semibold text-white"
+                        >+$2,500</span
+                      >
+                    </div>
+                  </div>
+                  <div
+                    class="rounded-2xl border border-white/10 bg-white/5 p-4"
+                  >
+                    <div class="flex items-center justify-between">
+                      <span class="text-sm text-slate-300">Withdraw</span>
+                      <span class="text-sm font-semibold text-white"
+                        >-$350</span
+                      >
+                    </div>
+                  </div>
+                  <div
+                    class="rounded-2xl border border-white/10 bg-white/5 p-4"
+                  >
+                    <div class="flex items-center justify-between">
+                      <span class="text-sm text-slate-300">Transfer</span>
+                      <span class="text-sm font-semibold text-white"
+                        >+$1,200</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="bg-white py-20">
+        <div
+          class="mx-auto grid max-w-6xl gap-10 px-6 lg:grid-cols-2 lg:items-center"
+        >
+          <div>
+            <p
+              class="text-sm font-semibold uppercase tracking-[0.3em] text-blue-600"
+            >
+              Why choose us
+            </p>
+            <h2 class="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">
+              A cleaner way to understand and manage digital money.
+            </h2>
+            <p class="mt-5 text-lg leading-8 text-slate-600">
+              LUKEXX Wallet is built for users who want a simple, secure, and
+              modern experience while exploring virtual financial flows. Every
+              part of the layout is designed to feel approachable and
+              professional.
+            </p>
+
+            <div class="mt-8 space-y-4">
+              <div
+                class="flex items-start gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-4"
+              >
+                <div
+                  class="mt-1 flex h-8 w-8 items-center justify-center rounded-full bg-blue-100 text-blue-600"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-slate-900">
+                    Built for clarity
+                  </h3>
+                  <p class="text-sm text-slate-600">
+                    Easy navigation and readable sections make every action feel
+                    effortless.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="flex items-start gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-4"
+              >
+                <div
+                  class="mt-1 flex h-8 w-8 items-center justify-center rounded-full bg-blue-100 text-blue-600"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12c5.16-1.26 9-6.45 9-12V5z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-slate-900">
+                    Security-first design
+                  </h3>
+                  <p class="text-sm text-slate-600">
+                    Core experiences like deposits, withdrawals, and history are
+                    presented clearly and securely.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 p-2 shadow-xl"
+          >
+            <img
+              class="h-full w-full rounded-[1.2rem] object-cover"
+              src="./assets/images/hero-image.jpg"
+              alt="Wallet dashboard preview"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="bg-slate-50 py-20">
+        <div class="mx-auto max-w-6xl px-6">
+          <div class="mx-auto max-w-2xl text-center">
+            <p
+              class="text-sm font-semibold uppercase tracking-[0.3em] text-blue-600"
+            >
+              Features
+            </p>
+            <h2 class="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">
+              Everything you need for a smoother wallet experience.
+            </h2>
+            <p class="mt-4 text-lg text-slate-600">
+              From secure transactions to easy tracking, every feature is
+              designed to feel simple and modern.
+            </p>
+          </div>
+
+          <div class="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            <div
+              class="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm"
+            >
+              <div
+                class="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-100 text-blue-600"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M12 2 3 7v5c0 5.55 3.84 10.74 9 12c5.16-1.26 9-6.45 9-12V7z"
+                  />
+                </svg>
+              </div>
+              <h3 class="mt-5 text-xl font-semibold text-slate-900">
+                Secure Wallet
+              </h3>
+              <p class="mt-3 text-slate-600">
+                Protected by a simple and trusted experience that keeps your
+                virtual funds safe.
+              </p>
+            </div>
+
+            <div
+              class="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm"
+            >
+              <div
+                class="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-100 text-blue-600"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                >
+                  <path fill="currentColor" d="M11 2h2v20h-2zM2 11h20v2H2z" />
+                </svg>
+              </div>
+              <h3 class="mt-5 text-xl font-semibold text-slate-900">
+                Instant Deposits
+              </h3>
+              <p class="mt-3 text-slate-600">
+                Add funds instantly and see your balance update in a clean,
+                responsive layout.
+              </p>
+            </div>
+
+            <div
+              class="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm"
+            >
+              <div
+                class="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-100 text-blue-600"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M6 3h12v2H6zm0 16h12v2H6zm2-4h8v2H8zm0-4h8v2H8z"
+                  />
+                </svg>
+              </div>
+              <h3 class="mt-5 text-xl font-semibold text-slate-900">
+                Smart Withdrawals
+              </h3>
+              <p class="mt-3 text-slate-600">
+                Withdraw only when you have enough balance, helping keep
+                everything organized and predictable.
+              </p>
+            </div>
+
+            <div
+              class="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm"
+            >
+              <div
+                class="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-100 text-blue-600"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2m2 4v2h10V7zm0 4v2h6v-2z"
+                  />
+                </svg>
+              </div>
+              <h3 class="mt-5 text-xl font-semibold text-slate-900">
+                Transaction History
+              </h3>
+              <p class="mt-3 text-slate-600">
+                Every deposit, withdrawal, and transfer is logged with date and
+                status for quick review.
+              </p>
+            </div>
+
+            <div
+              class="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm"
+            >
+              <div
+                class="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-100 text-blue-600"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M12 12a4 4 0 1 0-4-4a4 4 0 0 0 4 4m0 2c-4.42 0-8 2.24-8 5v1h16v-1c0-2.76-3.58-5-8-5"
+                  />
+                </svg>
+              </div>
+              <h3 class="mt-5 text-xl font-semibold text-slate-900">
+                Profile Management
+              </h3>
+              <p class="mt-3 text-slate-600">
+                Stay in control with a profile area designed for personal
+                details and account updates.
+              </p>
+            </div>
+
+            <div
+              class="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm"
+            >
+              <div
+                class="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-100 text-blue-600"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                >
+                  <path fill="currentColor" d="M4 5h16v14H4zM6 7v10h12V7z" />
+                </svg>
+              </div>
+              <h3 class="mt-5 text-xl font-semibold text-slate-900">
+                Responsive Experience
+              </h3>
+              <p class="mt-3 text-slate-600">
+                The interface feels polished on desktop, tablet, and mobile
+                without losing its structure.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="how" class="bg-white py-20">
+        <div class="mx-auto max-w-6xl px-6">
+          <div class="mx-auto max-w-2xl text-center">
+            <p
+              class="text-sm font-semibold uppercase tracking-[0.3em] text-blue-600"
+            >
+              How it works
+            </p>
+            <h2 class="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">
+              Getting started is simple and quick.
+            </h2>
+            <p class="mt-4 text-lg text-slate-600">
+              Follow these steps to begin using your virtual wallet in just
+              minutes.
+            </p>
+          </div>
+
+          <div class="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-5">
+            <div
+              class="rounded-3xl border border-slate-200 bg-slate-50 p-6 text-center shadow-sm"
+            >
+              <div
+                class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-blue-600 text-lg font-semibold text-white"
+              >
+                1
+              </div>
+              <h3 class="mt-4 font-semibold text-slate-900">
+                Create an Account
+              </h3>
+              <p class="mt-2 text-sm text-slate-600">
+                Sign up in a few easy steps and get started immediately.
+              </p>
+            </div>
+            <div
+              class="rounded-3xl border border-slate-200 bg-slate-50 p-6 text-center shadow-sm"
+            >
+              <div
+                class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-blue-600 text-lg font-semibold text-white"
+              >
+                2
+              </div>
+              <h3 class="mt-4 font-semibold text-slate-900">Login Securely</h3>
+              <p class="mt-2 text-sm text-slate-600">
+                Open your personal dashboard with a safe, simple login flow.
+              </p>
+            </div>
+            <div
+              class="rounded-3xl border border-slate-200 bg-slate-50 p-6 text-center shadow-sm"
+            >
+              <div
+                class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-blue-600 text-lg font-semibold text-white"
+              >
+                3
+              </div>
+              <h3 class="mt-4 font-semibold text-slate-900">Deposit Funds</h3>
+              <p class="mt-2 text-sm text-slate-600">
+                Add virtual money and watch your balance update instantly.
+              </p>
+            </div>
+            <div
+              class="rounded-3xl border border-slate-200 bg-slate-50 p-6 text-center shadow-sm"
+            >
+              <div
+                class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-blue-600 text-lg font-semibold text-white"
+              >
+                4
+              </div>
+              <h3 class="mt-4 font-semibold text-slate-900">Withdraw Easily</h3>
+              <p class="mt-2 text-sm text-slate-600">
+                Move money out whenever you need it with clear controls.
+              </p>
+            </div>
+            <div
+              class="rounded-3xl border border-slate-200 bg-slate-50 p-6 text-center shadow-sm"
+            >
+              <div
+                class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-blue-600 text-lg font-semibold text-white"
+              >
+                5
+              </div>
+              <h3 class="mt-4 font-semibold text-slate-900">
+                Track Everything
+              </h3>
+              <p class="mt-2 text-sm text-slate-600">
+                Review your entire transaction history in one place.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="bg-gradient-to-r from-slate-950 via-blue-700 to-blue-500 py-20 text-white"
+      >
+        <div class="mx-auto max-w-6xl px-6">
+          <div
+            class="grid gap-8 rounded-[2rem] border border-white/15 bg-white/10 p-8 shadow-2xl shadow-slate-950/20 lg:grid-cols-[1.1fr_0.9fr] lg:items-center"
+          >
+            <div>
+              <p
+                class="text-sm font-semibold uppercase tracking-[0.3em] text-blue-100"
+              >
+                Ready to begin?
+              </p>
+              <h2 class="mt-3 text-2xl font-bold sm:text-4xl">
+                Experience smarter money management with LUKEXX Wallet.
+              </h2>
+              <p class="mt-4 max-w-xl text-lg text-slate-200">
+                Join thousands of users exploring digital finance through a
+                refined, easy-to-use wallet experience.
+              </p>
+            </div>
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div
+                class="rounded-2xl border border-white/15 bg-slate-950/30 p-5"
+              >
+                <h3 class="text-3xl font-semibold">5+</h3>
+                <p class="mt-2 text-sm text-slate-300">Core features</p>
+              </div>
+              <div
+                class="rounded-2xl border border-white/15 bg-slate-950/30 p-5"
+              >
+                <h3 class="text-3xl font-semibold">100%</h3>
+                <p class="mt-2 text-sm text-slate-300">Secure simulation</p>
+              </div>
+              <div
+                class="rounded-2xl border border-white/15 bg-slate-950/30 p-5"
+              >
+                <h3 class="text-3xl font-semibold">24/7</h3>
+                <p class="mt-2 text-sm text-slate-300">Accessibility</p>
+              </div>
+              <div
+                class="rounded-2xl border border-white/15 bg-slate-950/30 p-5"
+              >
+                <h3 class="text-3xl font-semibold">Unlimited</h3>
+                <p class="mt-2 text-sm text-slate-300">Transactions</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-slate-950 text-white">
+      <div class="mx-auto max-w-6xl px-6 py-16">
+        <div class="grid gap-10 border-b border-white/10 pb-10 md:grid-cols-3">
+          <div>
+            <h2 class="text-3xl font-bold">
+              LUKEXX <span class="text-blue-400">Wallet</span>
+            </h2>
+            <p class="mt-4 leading-7 text-gray-400">
+              Manage your virtual wallet with confidence. Deposit, withdraw, and
+              keep track of every transaction through a secure and user-friendly
+              experience.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="mb-5 text-lg font-semibold">Quick Links</h3>
+            <ul class="space-y-3 text-gray-400">
+              <li>
+                <a href="index.html" class="transition hover:text-white"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a href="register.html" class="transition hover:text-white"
+                  >Register</a
+                >
+              </li>
+              <li>
+                <a href="login.html" class="transition hover:text-white"
+                  >Login</a
+                >
+              </li>
+              <li>
+                <a href="dashboard.html" class="transition hover:text-white"
+                  >Dashboard</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="mb-5 text-lg font-semibold">Resources</h3>
+            <ul class="space-y-3 text-gray-400">
+              <li>
+                <a href="wallet.html" class="transition hover:text-white"
+                  >Wallet</a
+                >
+              </li>
+              <li>
+                <a href="transactions.html" class="transition hover:text-white"
+                  >Transactions</a
+                >
+              </li>
+              <li>
+                <a href="profile.html" class="transition hover:text-white"
+                  >Profile</a
+                >
+              </li>
+              <li>
+                <a href="settings.html" class="transition hover:text-white"
+                  >Settings</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="flex flex-col items-center justify-between gap-4 pt-8 text-sm text-gray-400 md:flex-row"
+        >
+          <p>© 2026 LUKEXX Wallet. All rights reserved.</p>
+          <p>
+            Built with <span class="text-red-500">❤</span> by
+            <span class="font-medium text-white">Lukman Azeez</span>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./js/script.js"></script>
+  </body>
+</html>
