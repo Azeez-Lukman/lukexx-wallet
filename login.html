@@ -20,12 +20,18 @@
         </div>
         <!-- second column -->
         <div class="bg-white p-8 rounded-lg shadow-md pt-10">
-          <form action="" class="flex flex-col gap-4">
-            <input id="email" type="email" placeholder="Email Address" class="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[var(--primary)]">
-            <input id="password" type="password" placeholder="Password" class="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[var(--primary)]">
+          <form id="login-form" action="" class="flex flex-col gap-4">
+             <!-- Error Message Display Area -->
+            <div id="message-display" class=""></div>
 
-            <button id="login" type="submit" class="bg-[var(--primary)] text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300">Login</button>
+            <input id="login-email" type="email" placeholder="Email Address" class="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[var(--primary)]">
+            <input id="login-password" type="password" placeholder="Password" class="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[var(--primary)]">
+
+            <button id="login-btn" type="submit" class="bg-[var(--primary)] text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300">Login</button>
           </form>
   </section>
+
+
+  <script src="./js/auth.js"></script>
 </body>
 </html>
