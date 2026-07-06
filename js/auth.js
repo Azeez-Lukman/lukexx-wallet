@@ -1,23 +1,29 @@
-// get all ids'
+// ########## GET ALL IDs FOR REGISTER AND LOGIN ##########
+// ######### REGISTER #########
 
 const registerForm = document.getElementById('register-form');
-const fullNameInput = document.getElementById('full-name');
-const userEmailInput = document.getElementById('email');
-const phoneNumberInput = document.getElementById('phone');
-const userPasswordInput = document.getElementById('password');
-const confirmPasswordInput = document.getElementById('confirm-password');
-const message = document.getElementById('message-display');
+const fullName = document.getElementById('full-name');
+const email = document.getElementById('email');
+const phone = document.getElementById('phone');
+const password = document.getElementById('password');
+const confirmPassword = document.getElementById('confirm-password');
 const registerBtn = document.getElementById('register-btn');
 
-// get existing users or create an empty array
-let users = JSON.parse(localStorage.getItem('users')) || [];
+// ######### REGISTER PAGE ########
 
+const loginForm = document.getElementById('login-form');
+const loginEmail = document.getElementById('login-email');
+const loginPassword = document.getElementById('login-password');
+const loginBtn = document.getElementById('login-btn');
 
-// message display
+//  FOR BOTH
+const message = document.getElementById('message-display');
+
+// ########### MESSAGE DISPLAY (error/success) #########
+
 function displayMessage(text, type) {
   message.textContent = text;
-  
-  message.classList.remove("hidden");
+  message.classList.remove('hidden');
 
   if (type === 'error') {
     message.className = 'text-sm font-semibold text-rose-600 bg-white border border-rose-800 rounded-lg p-3';
@@ -25,178 +31,195 @@ function displayMessage(text, type) {
     message.className = 'text-sm font-semibold text-green-600 bg-white border border-green-800/50 rounded-lg p-3 ';
   }
   setTimeout(() => {
-    message.classList.add("hidden");
-  },4000)
+    message.classList.add('hidden');
+  }, 4000);
 }
 
-if(registerForm) {
-  // form submission event listener
+// ###### GET ALL USERS ########
+function getUsers(){
+  return JSON.parse(localStorage.getItem('users')) || [];
 
-  registerForm.addEventListener('submit', (e) => {
-    e.preventDefault(); 
+}
 
-    // hide previous message
-    message.classList.add("hidden");
+// ######## SAVE ALL USERS #####
+function saveUsers(users) {
+  localStorage.setItem('users', JSON.stringify(users));
+
+}
+
+// ######## CHECK EXISTING EMAIL ########
+function emailExists(email) {
+  const users = getUsers();
+  return users.find(user => user.email === email);
+}
+
+// ####### SAVE LOGGED-IN USERS ######
+function saveCurrentUser(user) {
+  localStorage.setItem('currentUser', JSON.stringify(user));
+
+}
+
+// ####### GET CURRENT USER ########
+function getCurrentUser() {
+  return JSON.parse(localStorage.getItem('currentUser'));
+}
+
+// ######### REDIRECT USER REGISTER #########
+function redirect(path) {
+  window.location.href = './login.html'
+}
+// ######### REDIRECT USER LOGIN #########
+function redirectLogin(path) {
+  window.location.href = './dashboard.html'
+}
 
 
-    // get the values from the input fields
+// ####### RESET BUTTON #########
+function resetButton(button, text){
+  button.disabled = false;
+  button.textContent = text;
 
-    const fullName = fullNameInput.value.trim();
-    const userEmail = userEmailInput.value.trim().toLowerCase();
-    const phoneNumber = phoneNumberInput.value.trim();
-    const password = userPasswordInput.value.trim();
-    const confirmPassword = confirmPasswordInput.value;
+}
 
-    // validate the input fields
-    if (!fullName || !userEmail || !phoneNumber || !password || !confirmPassword) {
-      displayMessage('Please fill in all fields', 'error');
-      return;
-    }
-    //  password match validation
-    if (password !== confirmPassword) {
-      displayMessage('Passwords do not match', 'error');
-      return;
-    }
-    // password length validation
-    if (password.length < 8) {
-      displayMessage('Password must be at least 8 characters long', 'error');
-      return;
-    }
+// ####### REGISTER USER #######
+function registerUser(e) {
+  e.preventDefault();
 
-    // check if mail already exists
-  const existingUser = users.find((user) => user.email === userEmail);
-  if (existingUser) {
+  const user = {
+    id: Date.now(),
+    fullName: fullName.value.trim(),
+    email: email.value.trim().toLowerCase(),
+    phone: phone.value,
+    password: password.value,
+    balance: 0,
+    transactions: []
+  };
+
+  // validate empty fields
+  if(
+    !user.fullName || 
+    !user.email || 
+    !user.phone || 
+    !user.password || 
+    !confirmPassword.value
+  )
+     {
+    displayMessage('please fill in all fields', 'error');
+    return;
+
+  }
+
+  // password check
+  if(user.password !== confirmPassword.value) {
+    displayMessage('Password do not match', 'error');
+    return;
+  }
+
+  // password length
+  if(user.password.length < 8) {
+    displayMessage('Password must be at least 8 characters long', 'error');
+    return;
+  }
+
+  // Existing Email
+  if(emailExists(user.email)) {
     displayMessage('An account with this email already exists.', 'error');
     return;
   }
 
-    // disable button while processing
-    registerBtn.disabled = true;
-    registerBtn.textContent = 'Creating Account...';
-    displayMessage('Creating your account, please wait...', 'success');
+  // disable button while processing
+  registerBtn.disabled = true;
+  registerBtn.textContent = 'Creating Account...';
+  displayMessage('Creating your account...', 'success');
+  
+  // save users
+  const users = getUsers();
+  users.push(user);
+  saveUsers(users);
+  displayMessage('Account created successfully! Redirecting to login...', 'success');
 
-
-  // Creaate new user
-  const newUser = {
-    id: Date.now().toString(),
-    fullName: fullName,
-    email: userEmail,
-    phone: phoneNumber,
-    password: password,
-    balance: 0,
-    transactions: [],
-  };
-
-  // save error
-  users.push(newUser);
-  localStorage.setItem('users', JSON.stringify(users));
-
-  // success message
-  displayMessage('Accout created successfully! Redirecting to login....', 'success');
-
-  // Redirect to login page
   setTimeout(() => {
-    window.location.href = "./login.html";
+    redirect('./login.html')
   }, 2000);
 
-  // reset  button (ifnredirect fails)
-    registerBtn.disabled = false;
-    registerBtn.textContent = 'Create Account';
 
-  });
+  
+  resetButton(registerBtn, 'Create Account');
+
 }
 
-// ########### LOGIN AUTHORISAION ############
+// Register event
+if (registerForm) {
+  registerForm.addEventListener('submit', registerUser);
+}
 
-// Getting all login IDs
+// ######### LOGIN PAGE ########
 
-const loginForm = document.getElementById('login-form');
-const loginEmail = document.getElementById('login-email');
-const loginPassword = document.getElementById('login-password');
-const loginBtn = document.getElementById('login-btn');
-const loginMessage = document.getElementById('message-display')
+function loginUser(e) {
+  e.preventDefault();
 
+  // validate input
+  const user = {
+    email: loginEmail.value.trim(),
+    password: loginPassword.value,
+  }
 
-// error message display for login page
- function messageDisplay (text, type) {
-  loginMessage.textContent = text;
-  loginMessage.classList.remove('hidden');
+  // vaidate empty fields
+  if (!user.email ||!user.password) {
+    displayMessage('Please fill in all fields', 'error');
+    return;
+  }
 
-  if (type === 'error') {
-    loginMessage.className = 'text-sm font-semibold text-rose-600 bg-white border border-rose-800 rounded-lg p-3';
-  } else{
-    loginMessage.className = 'text-sm font-semibold text-green-600 bg-white border border-green-800/50 rounded-lg p-3 ';
-  } 
+  // Get All Users
+  const users = getUsers();
+
+  // Find Users By Email
+  const existingUser = users.find((registeredUser) => registeredUser.email === user.email);
+
+  // Check Email Match
+  if(!existingUser) {
+    displayMessage('No account found with this email', 'error');
+    return;
+  }
+
+  // check if password is correct
+  if(existingUser.password !== user.password) {
+    displayMessage('Incorrect password', 'error');
+    return;
+  }
+
+  // disable button
+  loginBtn.disabled = true;
+  loginBtn.innerText = 'Logging in...';
+  displayMessage('Logging in, please wait...', 'success');
+
+  // save logged in users
+  saveCurrentUser(existingUser);
+
+  // success message
+  // displayMessage('Welcome back', 'success');
+
+  // redirect to dashboard
   setTimeout(() => {
-    loginMessage.classList.add('hidden');
-  }, 4000)
- }
+    redirectLogin('./dashboard.html');
+  }, 2000);
+  
+  //  Reset Button
+  resetButton(loginBtn, 'Login');
+
+}
+
+// #### LOGIN EVENT
+if(loginForm){
+  loginForm.addEventListener('submit', loginUser);
+}
 
 
-//  ############# LOGIN #########
+// PROTECT DASHBOARD
+function protectDashboard() {
+  const currentUser = getCurrentUser();
 
-if (loginForm){
-  loginForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-
-    // hide previous message
-    loginMessage.classList.add('hidden');
-
-    // get user input
-    const user = {
-      email: loginEmail.value.trim().toLowerCase(),
-      password: loginPassword.value,
-    };
-
-
-    // validate empty fields
-    if(!user.email || !user.password) {
-      messageDisplay('Please fill in all fields', 'error');
-      return;
-    }
-
-    // get registered users
-
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-
-    // check if mail exist
-    const existingUser = users.find((registeredUser) => registeredUser.email === user.email);
-    
-    if(!existingUser){
-      messageDisplay('no account found with this email', 'error')
-      return;
-    }
-
-    // check if password is correct
-    if(existingUser.password !== user.password) {
-      messageDisplay('Incorrect password', 'error');
-      return;
-    }
-
-    // disable button while processing
-    loginBtn.disabled = true;
-    loginBtn.textContent = 'Logging in...';
-    messageDisplay('Logging in, please wait...', 'success');
-
-    // save logged in user to local storage
-    localStorage.setItem(
-      'currentUser',
-      JSON.stringify(existingUser)
-    );
-
-    // success message
-    messageDisplay('Login successful! Redirecting to dashboard....', 'success');
-
-    // Redirect to dashboard page
-    setTimeout(() => {
-      window.location.href = "./dashboard.html";
-    }, 2000)
-
-    // reset button (if redirect fails)
-    loginBtn.disabled = false;
-    loginBtn.textContent = 'Login'
-
-
-  });
+  if(!currentUser){
+    window.location.href = './login.html';
+  }
 }
