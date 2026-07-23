@@ -77,8 +77,15 @@
             </a>
           </div>
           <!--  -->
+          <!-- <div class="flex items-center gap-3">
+            <div id="avatarInitials" class="flex items-center justify-center h-9 w-9 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-semibold">LA</div>
+            <div class="text-right">
+              <p id="welcome-user" class="text-sm"></p>
+              <p id="accountNumber" class="text-xs text-white/70">LUK-0000000001</p>
+            </div>
+          </div> -->
           <div>
-            <p id="welcome-user" ></p>
+            <p id="welcome-user"></p>
           </div>
         </div>
       </div>
@@ -179,22 +186,30 @@
         >
           <div class="p-5 text-center">
             <p class="text-white/70 text-sm">Deposits</p>
-            <h3 class="mt-1 text-xl font-semibold">₦120,000</h3>
+            <h3 class="mt-1 text-xl font-semibold">
+              <span id="stat-deposits">₦120,000</span>
+            </h3>
           </div>
 
           <div class="p-5 text-center">
             <p class="text-white/70 text-sm">Withdrawals</p>
-            <h3 class="mt-1 text-xl font-semibold">₦70,000</h3>
+            <h3 class="mt-1 text-xl font-semibold">
+              <span id="stat-withdrawals">₦70,000</span>
+            </h3>
           </div>
 
           <div class="p-5 text-center">
             <p class="text-white/70 text-sm">Transactions</p>
-            <h3 class="mt-1 text-xl font-semibold">28</h3>
+            <h3 class="mt-1 text-xl font-semibold">
+              <span id="stat-transactions">28</span>
+            </h3>
           </div>
 
           <div class="p-5 text-center">
             <p class="text-white/70 text-sm">Status</p>
-            <h3 class="mt-1 text-xl font-semibold text-green-300">Active</h3>
+            <h3 class="mt-1 text-xl font-semibold text-green-300">
+              <span id="stat-status">Active</span>
+            </h3>
           </div>
         </div>
       </div>
